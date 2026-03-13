@@ -11,7 +11,9 @@ export default async function Home({
   const API_KEY = process.env.NEXT_PUBLIC_TMDB_KEY;
 
   const tmdbUrl = query
-    ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&page=1`
+    ? `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(
+        query
+      )}&page=1`
     : `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=1`;
 
   let movies: any[] = [];
@@ -32,12 +34,12 @@ export default async function Home({
   }
 
   return (
-    <main className="container mx-auto px-4 py-6">
+    <div>
       <SearchBar initialQuery={query} />
       <MoodMatcher />
 
-      {/* initial 20 movies */}
+      {/* first 20 movies */}
       <MovieGrid initialMovies={movies} query={query} />
-    </main>
+    </div>
   );
 }
