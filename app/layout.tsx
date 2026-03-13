@@ -21,31 +21,60 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <FavoritesProvider>
-          <div style={{
-            backgroundColor: "#111",
-            minHeight: "100vh",
-            padding: "2rem 4rem",
-            color: "white",
-            boxSizing: "border-box",
-            width: "100%"
-          }}>
-            <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+          <div
+            style={{
+              backgroundColor: "#111",
+              minHeight: "100vh",
+              padding: "2rem 4rem",
+              color: "white",
+              width: "100%",
+            }}
+          >
+            <header
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "2rem",
+              }}
+            >
               <h1>🎬 Cine Stream</h1>
+
               <nav style={{ display: "flex", gap: "20px" }}>
-                <Link href="/" style={{ color: "white", textDecoration: "none", fontSize: "1.2rem", fontWeight: "bold" }}>Home</Link>
-                <Link href="/favorites" style={{ color: "white", textDecoration: "none", fontSize: "1.2rem", fontWeight: "bold" }}>My Favorites ❤️</Link>
+                <Link
+                  href="/"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontSize: "1.2rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Home
+                </Link>
+
+                <Link
+                  href="/favorites"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontSize: "1.2rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  My Favorites ❤️
+                </Link>
               </nav>
             </header>
-            <main>
-              {children}
-            </main>
+
+            <main>{children}</main>
           </div>
         </FavoritesProvider>
       </body>
